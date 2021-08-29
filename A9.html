@@ -1,0 +1,82 @@
+<!-- TIC TAC TOE (5 DAYS)
+Phase 1
+• Create a game of tic tac toe.
+• The design, representation and responsiveness of the tic tac toe board in the DOM is up to your creativity and imagination.
+• The rule of whose turn it is (X or O) must be observed. You can choose whether X or O will play first. - pending
+• The "state" of the board should strictly come from a two-dimensional array (In JS, that's array within an array).
+• You may use array built-in methods.
+
+Phase 2
+• When a player wins, you must show the history of the game.
+• To do that, every move should be "saved".
+• Implement two buttons, "Previous" and "Next", that will show up when a game is done/finished.
+• When clicking previous or next, the board should show the current move at that moment/turn.
+• If there's no "next move", the next button must be disabled. And if there's no "previous move", the previous button must be disabled. - pending
+• Also, implement a reset busstton, that:
+    a. restarts the game
+    b. hides the next and prev buttons
+    c. clears move history
+• Yes. Refreshing the page clears the history of the game.
+• No. You cannot use any library like React etc. (You can check them as references though.)
+• No. You cannot use class(objects). Let's be "functional" for now!-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe Game Project</title>
+        <link rel="stylesheet" href="A9.css">
+        <script src="A9.js" defer></script>
+        <!--use defer so the script loads after the body of our html-->
+        <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <main class="container">
+        <div class="header">
+            <h1>
+                <span class="fontRed">TIC -</span>
+                <span class="fontBlue">TAC -</span>
+                <span class="fontGreen">TOE</span>
+            </h1>
+            <div class="status">
+                <span class="fontRed">
+                    <h2 >Player X</h2>
+                        <p class="centerPoints" id="xPoints">0</p>
+                </span>
+                <span class="fontGreen">
+                    <h2>Draw</h2>
+                        <p class="centerPoints" id="drawPoints">0</p>
+                </span>
+                <span class="fontBlue">
+                    <h2>Player O</h2>
+                        <p class="centerPoints" id="oPoints">0</p>
+                </span>
+            </div>
+        </div>
+        <!--Tic-Tac-Toe Board-->
+        <div class="board" id="board">
+            <div class="cell" id="rightBorder"></div>
+            <div class="cell" id="rightBorder"></div>
+            <div class="cell"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topBorder"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topBorder"></div>
+        </div>
+        <!--Pop-up displays-->
+        <div class="popUp" id="popUp">
+            <p class="winMessage fontRed" id="winMessage">Player X Wins!</p>
+            <div class="buttons">
+                <button class="button fontRed" onclick="prevMove()">Previous</button>
+                <button class="button fontRed" onclick="nextMove()">Next</button>
+                <button class="button fontRed" onclick="startGame()">Reset</button>
+            </div>
+        </div>
+        <div class="popUpTwo" id="popUpTwo">
+            <h3 class="fontBlue">Move History</h3>
+            <p class="fontRed underline" id="storage"></p>
+        </div>
+    </main>
+</body>
+</html>
